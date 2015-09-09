@@ -17,7 +17,20 @@ The script can also be called manually as a jQuery plugin for elements dynamical
 
 ## Dependencies
 
-This script requires [jQuery](http://jquery.com/), [jQuery UI](http://jqueryui.com/), and [Modernizr](http://www.modernizr.com/).
+This script requires [jQuery](http://jquery.com/), [jQuery UI](http://jqueryui.com/), and [Modernizr](http://www.modernizr.com/). If you don't want to load all of Modernizr, then the following would equally suffice:
+
+```js
+	var Modernizr = { 'inputtypes': {} },
+		inputElem = document.createElement( 'input' ), smile = ':)';
+	inputElem.setAttribute( 'type', 'date' );
+	if ( inputElem.type !== 'text' ) {
+		inputElem.value = smile;
+		inputElem.style.cssText = 'position:absolute;visibility:hidden;';
+		Modernizr.inputtypes.date = ( inputElem.value != smile );
+	} else {
+		Modernizr.inputtypes.date = false;
+	}
+```
 
 ## Demo
 
